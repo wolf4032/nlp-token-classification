@@ -18,6 +18,11 @@
 [wolf4032/bert-japanese-token-classification-search-local-cuisine](https://huggingface.co/wolf4032/bert-japanese-token-classification-search-local-cuisine)
 - ファインチューニングした言語モデル
 - [使用させていただいた事前学習済みモデル](https://huggingface.co/tohoku-nlp/bert-base-japanese-v2)(tohoku-nlp/bert-base-japanese-v2)
+- テスト結果
+  - f1: 0.9961977186311787
+  - accuracy: 0.9995689655172414
+  - precision: 0.9940978077571669
+  - recall: 0.9983065198983911
 
 ### モデルの学習に使ったデータセット
 [wolf4032/token-classification-japanese-search-local-cuisine](https://huggingface.co/datasets/wolf4032/token-classification-japanese-search-local-cuisine)
