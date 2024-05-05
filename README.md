@@ -27,7 +27,7 @@
 ### モデルの学習に使ったデータセット
 [wolf4032/token-classification-japanese-search-local-cuisine](https://huggingface.co/datasets/wolf4032/token-classification-japanese-search-local-cuisine)
 - 自作のデータセット
-- [このノートブックで作成した](local_cuisine_search_app/notebooks/create_data/04_encoded_dataset_dataframe/encoded_dataset_dataframe_dependencies/01_untokenized_dataset_list/untokenized_dataset_list.ipynb)
+- [このノートブック](local_cuisine_search_app/notebooks/create_data/04_encoded_dataset_dataframe/encoded_dataset_dataframe_dependencies/01_untokenized_dataset_list/untokenized_dataset_list.ipynb)で作成した
 - ↓データの構造
 ```python
 {
