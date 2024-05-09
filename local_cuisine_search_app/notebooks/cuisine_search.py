@@ -6,18 +6,11 @@
 # In[1]:
 
 
-from google.colab import drive
-drive.mount('/content/drive')
-
-
-# In[2]:
-
-
 get_ipython().system('pip install transformers fugashi ipadic')
 get_ipython().system('pip install unidic-lite')
 
 
-# In[3]:
+# In[2]:
 
 
 from typing import Dict, List, Tuple, Any
@@ -26,17 +19,29 @@ from functools import reduce
 import operator
 import pandas as pd
 
-import sys
-sys.path.append('/content/drive/MyDrive/local_cuisine_search_app/modules')
 
-from utility import load_json_obj
-from pandas_utility import read_csv_df
-from pipeline import NaturalLanguageProcessing
+# # Hugging Face SpaceのFilesのダウンロード
+
+# In[3]:
+
+
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id='wolf4032/japanese-token-classification-search-local-cuisine',
+    revision='main',
+    repo_type='space',
+    local_dir='/content'
+)
+
+from src.utility import load_json_obj
+from src.pandas_utility import read_csv_df
+from src.pipeline import NaturalLanguageProcessing
 
 
 # # クラスの定義
 
-# In[40]:
+# In[4]:
 
 
 class NotApp:
@@ -502,22 +507,24 @@ class WordUnifier:
 
 # # 料理検索用オブジェクトの作成
 
-# In[41]:
+# In[5]:
 
 
 model_name = 'wolf4032/bert-japanese-token-classification-search-local-cuisine'
-cuisine_df_path = '/content/drive/MyDrive/local_cuisine_search_app/data/processed_data/02_local_cuisine_dataframe/local_cuisine_dataframe.csv'
-unify_dics_path = '/content/drive/MyDrive/local_cuisine_search_app/data/processed_data/01_unifying_dictionaries/unifying_dictionaries.json'
+cuisine_df_path = '/content/src/local_cuisine_dataframe.csv'
+unify_dics_path = '/content/src/unifying_dictionaries.json'
 
 not_app = NotApp(model_name, cuisine_df_path, unify_dics_path)
 
 
 # # 検索
 
-# In[43]:
+# In[6]:
 
 
+# classifying_textの中身を変更して再度このセルを実行しなおすと、再度固有表現抽出と、料理の検索を行います
 classifying_text = '仙豆を使った野菜料理を教えて下さい'
+
 df = not_app.search(classifying_text)
 df
 
