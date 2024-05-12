@@ -1,18 +1,25 @@
 # nlp-token-classification
-ファインチューニングで、固有表現抽出用の言語モデルを作成しました
+ポートフォリオとして、自作のデータセットでファインチューニングした言語モデルを使ったアプリを公開しました。
 
 ## 概要
-例えば、「東京の肉料理で、春に食べられる、鶏肉を使った料理を教えてください」という文章を入力すると、
-「東京　→　都道府県/地方」　「肉料理　→　種類」　「春　→　季節」　「鶏肉　→　食材」 のように、
-固有表現を抽出する言語モデルを作成しました
+固有表現抽出データセットを自作しました。
 
-## 各種リンク
+自作のデータセットを使って言語モデルをファインチューニングしました。
+
+「東京の肉料理で、春に食べられる、鶏肉を使った料理を教えてください」という文章を入力すると、
+「東京　→　都道府県/地方(AREA)」　「肉料理　→　種類(TYPE)」　「春　→　季節(SZN)」　「鶏肉　→　食材(INGR)」のように、
+固有表現を抽出する言語モデルを作成しました。
+
+ファインチューニングした言語モデルを使ったアプリを公開しました。
+
+
+## 外部リンク
 
 ### デモアプリ
 [wolf4032/japanese-token-classification-search-local-cuisine](https://huggingface.co/spaces/wolf4032/japanese-token-classification-search-local-cuisine)
 - 入力文から抽出された固有表現をもとに、日本の郷土料理を検索するアプリ
 - [うちの郷土料理：農林水産省](https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/index.html)
-  - こちらのサイトに掲載されている、飯料理、肉料理、野菜料理、魚料理を検索します
+  - こちらのサイトに掲載されている、飯料理、肉料理、野菜料理、魚料理を検索します。
 
 ### 言語モデル
 [wolf4032/bert-japanese-token-classification-search-local-cuisine](https://huggingface.co/wolf4032/bert-japanese-token-classification-search-local-cuisine)
@@ -27,7 +34,7 @@
 ### モデルの学習に使ったデータセット
 [wolf4032/token-classification-japanese-search-local-cuisine](https://huggingface.co/datasets/wolf4032/token-classification-japanese-search-local-cuisine)
 - 自作のデータセット
-- [このノートブック](local_cuisine_search_app/notebooks/create_data/04_encoded_dataset_dataframe/encoded_dataset_dataframe_dependencies/01_untokenized_dataset_list/untokenized_dataset_list.ipynb)で作成した
+- [このノートブック](local_cuisine_search_app/notebooks/create_data/04_encoded_dataset_dataframe/encoded_dataset_dataframe_dependencies/01_untokenized_dataset_list/untokenized_dataset_list.ipynb)で作成しました。
 - ↓データの構造
 ```python
 {
@@ -61,3 +68,10 @@
     ]
 }
 ```
+
+### 詳細情報
+- [Qiita](https://qiita.com/wolf4032/private/9dd7423c706fa86bf005)
+
+
+## アプリで使用した郷土料理の情報
+出典:農林水産省Webサイト(https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/)
